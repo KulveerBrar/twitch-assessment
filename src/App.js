@@ -1,16 +1,15 @@
-import React, {useEffect} from "react";
-import { getChannel } from './network'
+import React from "react";
+import Home from "./layouts/Home/Home";
 
 function App() {
-  useEffect(() => {
-    (async () => {
-        await getChannel()
-    })()
-  }, [])
+//   useEffect(() => {
+//     (async () => {
+//         await getChannel()
+//     })()
+//   }, [])
+
   return (
-    <div className="display-4">
-      Test
-    </div>
+    <Home />
   );
 }
 
