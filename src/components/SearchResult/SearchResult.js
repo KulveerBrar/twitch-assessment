@@ -8,7 +8,7 @@ const SearchResult = ({ channels, handleChannelClick }) => {
             {!channels ?
                 <p> No Results Found </p> :
                 channels.map((a, index) => (
-                    <ListGroup.Item key={index} onClick={() => handleChannelClick(a.broadcaster_login)}>
+                    <ListGroup.Item key={index} onClick={() => handleChannelClick(a.id)}>
                         {a.display_name}
                     </ListGroup.Item>))}
         </ListGroup>
