@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { getChannel } from "../../network";
-import SearchForm from "../../components/SearchForm/SearchForm";
+import React, { useState } from "react"
+import { getChannel } from "../../network"
+import SearchForm from "../../components/SearchForm/SearchForm"
 import { useHistory } from "react-router-dom"
-import SearchResult from "../../components/SearchResult/SearchResult";
+import SearchResult from "../../components/SearchResult/SearchResult"
 
 const Home = () => {
     const history = useHistory()
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState("")
     const [channels, setChannels] = useState([])
 
     const handleSearchChange = (e) => {
@@ -16,8 +16,8 @@ const Home = () => {
         !search ? alert("Please enter Channel Name") :
             setChannels(await getChannel(search))
     }
-    const handleChannelClick = (channel) => {
-        history.push(`/${channel}`)
+    const handleChannelClick = (channelId) => {
+        history.push(`/${channelId}`)
     }
 
     return (

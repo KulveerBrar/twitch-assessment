@@ -1,5 +1,5 @@
-import React from "react";
-import Home from "./layouts/Home/Home";
+import React from "react"
+import Home from "./layouts/Home/Home"
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,8 +11,8 @@ function App() {
 
   return (
     <Router>
-      <Switch>   
-        <Route path="/:channel">
+      <Switch>
+        <Route path="/:channelId">
           <Profile />
         </Route>
         <Route path="/">

@@ -1,0 +1,19 @@
+.twitch-video{
+    align-self: center;  
+}
+
+
+.logo-image{
+    width: 70px;
+    height: 70px;
+}
+
+.user-image{
+    text-align: right;
+}
+
+.channel-name{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
