@@ -4,7 +4,15 @@ const About = ({ description }) => {
 
     return (
         <>
-            {description}
+            {description ?
+                <>
+                {description}
+                </> 
+                :
+                <>
+                No Information to display
+                </>
+            }
         </>
     )
 }

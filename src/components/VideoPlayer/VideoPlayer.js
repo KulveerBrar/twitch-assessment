@@ -19,13 +19,16 @@ const VideoPlayer = ({ displayName, profileImageUrl, videoUrl }) => {
                     </Col>
                 </Row>
             </Container>
+            {videoUrl?
             <Card>
                 <ReactPlayer
+                    playing
                     controls
                     url={videoUrl}
                     className="twitch-video"
                 />
-            </Card>
+            </Card>:""
+}
 
         </>
     )
