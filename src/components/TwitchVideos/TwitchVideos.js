@@ -3,6 +3,7 @@ import "./TwitchVideos.css"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import NumberFormat from "../NumberFormat/NumerFormat"
+import { Link  } from "react-scroll";
 
 const TwitchVideos = ({ videos, onVideoCardClicked }) => {
     const responsive = {
@@ -36,9 +37,10 @@ const TwitchVideos = ({ videos, onVideoCardClicked }) => {
                 >
                     {videos.map((a, index) =>
                         <div key={index} className="card video-card">
+                            <Link to="twitch-video">
                             <div className="video-thumbnail">
                                 <img className="card-img-top" src={a.thumbnail_url.replace("%{width}", "320").replace("%{height}", "180")} alt="Card cap" width="320"
-                                    height="180" onClick={() => onVideoCardClicked(a.url)} />
+                                    height="180" onClick={() => {onVideoCardClicked(a.url); }} />
                                 <div className="view-count">
                                     <NumberFormat
                                         viewCount={a.view_count} /> Views
@@ -47,6 +49,7 @@ const TwitchVideos = ({ videos, onVideoCardClicked }) => {
                                     {a.duration}
                                 </div>
                             </div>
+                            </Link>
                             <div className="card-body">
                                 <h6 className="card-title text-dark">{a.title}</h6>
                                 <p className="card-text text-dark">{a.user_name} <br></br>{a.view_count} views</p>

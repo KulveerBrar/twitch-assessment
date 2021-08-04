@@ -1,17 +1,18 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { getChannel } from "../../network"
 import SearchForm from "../../components/SearchForm/SearchForm"
 import { useHistory } from "react-router-dom"
 import SearchResult from "../../components/SearchResult/SearchResult"
+import { channelsContext } from "../../Context/ContextIndex"
 
 const Home = () => {
     const history = useHistory()
     const [search, setSearch] = useState("")
-    const [channels, setChannels] = useState([])
+    const { channels, setChannels, setShowSearch } = useContext(channelsContext)
 
     const handleSearchChange = (e) => {
-        setSearch(e.target.value);
-    };
+        setSearch(e.target.value)
+    }
     const searchChannel = async () => {
         !search ? alert("Please enter Channel Name") :
             setChannels(await getChannel(search))
@@ -19,6 +20,10 @@ const Home = () => {
     const handleChannelClick = (channelId) => {
         history.push(`/${channelId}`)
     }
+
+    useEffect(() => {
+        setShowSearch("none")
+    }, [])
 
     return (
         <>

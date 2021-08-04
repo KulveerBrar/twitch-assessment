@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
 import { getChannelInfo, getChannelVideos } from "../../network"
 import { Tabs, Tab } from "react-bootstrap"
@@ -6,14 +6,16 @@ import "../Profile/Profile.css"
 import About from "../../components/About/About"
 import TwitchVideos from "../../components/TwitchVideos/TwitchVideos"
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer"
+import { channelsContext } from "../../Context/ContextIndex"
 
 const Profile = () => {
     let { channelId } = useParams()
+    const { setShowSearch } = useContext(channelsContext)
     const [profile, setProfile] = useState("")
     const [videos, setVideos] = useState([])
     const [videoUrl, setVideoUrl] = useState("")
 
-    const onVideoCardClicked =(e) =>{
+    const onVideoCardClicked = (e) => {
         setVideoUrl(e)
     }
 
@@ -24,13 +26,13 @@ const Profile = () => {
             const videoResult = await getChannelVideos(channelId)
             setVideos(videoResult)
             setVideoUrl(videoResult[0] && videoResult[0].url)
+            setShowSearch("flex")
         })()
     }, [])
 
     return (
-
         <>
-            {profile && 
+            {profile &&
                 <>
                     <VideoPlayer
                         profileImageUrl={profile.profile_image_url}
@@ -45,9 +47,9 @@ const Profile = () => {
                         </Tab>
                         <Tab eventKey="videos" title="Videos">
                             <TwitchVideos
-                                videos={videos[0] && videos} 
+                                videos={videos[0] && videos}
                                 onVideoCardClicked={onVideoCardClicked}
-                                />
+                            />
                         </Tab>
                     </Tabs>
                 </>
