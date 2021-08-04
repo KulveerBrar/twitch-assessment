@@ -2,7 +2,7 @@
 ## Overview
 This app allows you to search for channel, select desired channel, view channel's profile and play videos
 
-## Instructructions
+## Instructions
 * Register for Twitch account
 * Register your application on Twitch account and get client id and access token
 * Clone this repo
