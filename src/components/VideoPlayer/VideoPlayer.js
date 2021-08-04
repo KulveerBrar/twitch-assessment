@@ -6,9 +6,11 @@ import NumberFormat from "../NumberFormat/NumerFormat"
 
 const VideoPlayer = ({ displayName, profileImageUrl, videoUrl, followers }) => {
 
+    //Returns Profile image, channel name, formatted number of followers and latest uploaded video playing in 
+    //react player. In case of no uploaded video show nothing in place of react player
     return (
         <>
-            <Container className= "channel-info-container">
+            <Container className="channel-info-container">
                 <Row>
                     <Col xs={6} className="user-image">
                         <div>
@@ -18,9 +20,9 @@ const VideoPlayer = ({ displayName, profileImageUrl, videoUrl, followers }) => {
                     <Col xs={6}>
                         <div className="channel-name">
                             {displayName}
-                           
-                            </div>
-                            <div className="channel-followers">
+
+                        </div>
+                        <div className="channel-followers">
                             <NumberFormat
                                 valueToFormat={followers}
                             /> followers
@@ -29,7 +31,7 @@ const VideoPlayer = ({ displayName, profileImageUrl, videoUrl, followers }) => {
                 </Row>
             </Container>
             {videoUrl ?
-                <Card>
+                <Card className="video-car-container">
                     <ReactPlayer
                         playing
                         controls

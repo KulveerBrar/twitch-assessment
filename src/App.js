@@ -1,10 +1,6 @@
 import React from "react"
 import Home from "./layouts/Home/Home"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Profile from "./layouts/Profile/Profile";
 import Header from "./layouts/Header/Header";
 import ContextIndex from "./Context/ContextIndex";

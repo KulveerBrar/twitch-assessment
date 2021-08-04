@@ -4,6 +4,8 @@ import { ListGroup, Image } from "react-bootstrap"
 
 const SearchResult = ({ channels, handleChannelClick }) => {
 
+    //--------------------Returns name and profile picture from search results in List --------------------------//
+    //--------------------- If result from search is empty returns "No Results Found" ---------------------------//
     return (
         <ListGroup>
             {!channels ?

@@ -1,5 +1,6 @@
 import React from "react";
-import { Form, FormControl, Button } from 'react-bootstrap'
+import { Form, FormControl, Button } from "react-bootstrap"
+import "./SearchForm.css"
 
 const SearchForm = ({ handleSearchChange, searchChannel }) => {
 
@@ -8,7 +9,7 @@ const SearchForm = ({ handleSearchChange, searchChannel }) => {
             <FormControl
                 type="search"
                 placeholder="Search Channels"
-                className="mr-2"
+                className="search-input"
                 aria-label="Search"
                 onChange={handleSearchChange}
             />

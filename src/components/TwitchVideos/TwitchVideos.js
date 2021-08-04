@@ -3,9 +3,11 @@ import "./TwitchVideos.css"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import NumberFormat from "../NumberFormat/NumerFormat"
-import { Link  } from "react-scroll";
+import { Link } from "react-scroll"
 
 const TwitchVideos = ({ videos, onVideoCardClicked }) => {
+
+    //---------------------------------- To make carousel responsive -------------------------------------------//
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -25,9 +27,10 @@ const TwitchVideos = ({ videos, onVideoCardClicked }) => {
         }
     }
 
+    //------ Return video's thumbnails, formatted number of views, duration and channel name in Carousel ------//
+    //------------------- In case of empty result from api return "No Video Found" ----------------------------//
     return (
         <>
-            {console.log(videos)}
             {videos ?
                 <Carousel
                     className="video-carousel"
@@ -38,27 +41,27 @@ const TwitchVideos = ({ videos, onVideoCardClicked }) => {
                     {videos.map((a, index) =>
                         <div key={index} className="card video-card">
                             <Link to="twitch-video">
-                            <div className="video-thumbnail">
-                                <img className="card-img-top" src={a.thumbnail_url.replace("%{width}", "320").replace("%{height}", "180")} alt="Card cap" width="320"
-                                    height="180" onClick={() => {onVideoCardClicked(a.url); }} />
-                                <div className="view-count">
-                                    <NumberFormat
-                                        valueToFormat={a.view_count} /> Views
+                                <div className="video-thumbnail">
+                                    <img className="card-img-top" src={a.thumbnail_url.replace("%{width}", "320").replace("%{height}", "180")} alt="Card cap" width="320"
+                                        height="180" onClick={() => { onVideoCardClicked(a.url); }} />
+                                    <div className="view-count">
+                                        <NumberFormat
+                                            valueToFormat={a.view_count} /> Views
+                                    </div>
+                                    <div className="video-duration">
+                                        {a.duration}
+                                    </div>
                                 </div>
-                                <div className="video-duration">
-                                    {a.duration}
-                                </div>
-                            </div>
                             </Link>
                             <div className="card-body">
-                            <Link to="twitch-video"><h6 className="card-title text-dark" onClick={() => {onVideoCardClicked(a.url); }}>{a.title}</h6></Link>
-                                <p className="card-text text-dark">{a.user_name} views</p>
+                                <Link to="twitch-video"><h6 className="card-title text-dark" onClick={() => { onVideoCardClicked(a.url); }}>{a.title}</h6></Link>
+                                <p className="card-text text-dark">{a.user_name}</p>
                             </div>
                         </div>
                     )}
                 </Carousel>
                 :
-                <div>No Videos Found</div>
+                <div className="about-container">No Videos Found</div>
             }
         </>
     )

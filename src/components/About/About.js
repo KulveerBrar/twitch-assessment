@@ -4,12 +4,14 @@ import "./About.css"
 
 const About = ({ description, followers }) => {
 
+    //---------------To return Channel's description and number of followers(formatted value)------------------//
+    //-------------------- In case of no description return "No Information to display" -----------------------//
     return (
-        <div>
+        <div className="about-container">
             {description ?
-                <p className="about-followers">
-                    <NumberFormat
-                        valueToFormat={followers} /> followers
+                <p className="about-content">
+                    <span className="about-followers"> <NumberFormat
+                        valueToFormat={followers} /> followers </span>
                     <br></br>
                     <br></br>
                     {description}

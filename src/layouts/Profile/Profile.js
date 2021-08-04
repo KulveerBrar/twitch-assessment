@@ -9,17 +9,23 @@ import VideoPlayer from "../../components/VideoPlayer/VideoPlayer"
 import { channelsContext } from "../../Context/ContextIndex"
 
 const Profile = () => {
-    let { channelId } = useParams()
-    const { setShowSearch } = useContext(channelsContext)
     const [profile, setProfile] = useState("")
     const [videos, setVideos] = useState([])
     const [videoUrl, setVideoUrl] = useState("")
-    const [followers, setFollowers] =useState("")
+    const [followers, setFollowers] = useState("")
 
+    //---------------------------- To access channelId from URL parameters  ------------------------------------//
+    let { channelId } = useParams()
+
+    //------------------------------ To access setShowSearch from Context --------------------------------------//
+    const { setShowSearch } = useContext(channelsContext)
+   
+    //------------------- To Play selected video, store selected video url in "videoUrl" ------------------------//
     const onVideoCardClicked = (e) => {
         setVideoUrl(e)
     }
 
+    //----------------------------- Call APIs to get Channel Info when page loads -------------------------------//
     useEffect(() => {
         (async () => {
             const result = await getChannelInfo(channelId)
@@ -44,20 +50,20 @@ const Profile = () => {
                         followers={followers && followers.total}
                     />
                     <div className="tabs-container">
-                    <Tabs defaultActiveKey="videos">
-                        <Tab eventKey="about" title="About">
-                            <About
-                                description={profile.description}
-                                followers={followers && followers.total}
-                            />
-                        </Tab>
-                        <Tab eventKey="videos" title="Videos">
-                            <TwitchVideos
-                                videos={videos[0] && videos}
-                                onVideoCardClicked={onVideoCardClicked}
-                            />
-                        </Tab>
-                    </Tabs>
+                        <Tabs defaultActiveKey="videos" className="tabs-content">
+                            <Tab eventKey="about" title="About">
+                                <About
+                                    description={profile.description}
+                                    followers={followers && followers.total}
+                                />
+                            </Tab>
+                            <Tab eventKey="videos" title="Videos">
+                                <TwitchVideos
+                                    videos={videos[0] && videos}
+                                    onVideoCardClicked={onVideoCardClicked}
+                                />
+                            </Tab>
+                        </Tabs>
                     </div>
                 </>
             }

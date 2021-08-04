@@ -1,5 +1,10 @@
+.video-car-container{
+border: none !important;
+}
+
 .twitch-video{
-    align-self: center;  
+    align-self: center; 
+    border: none !important; 
 }
 
 .logo-image{

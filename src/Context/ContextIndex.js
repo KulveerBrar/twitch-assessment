@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 export const channelsContext = React.createContext()
 
@@ -8,6 +8,7 @@ const ContextIndex = (props) => {
     const [channels, setChannels] = useState([])
     const [showSearch, setShowSearch] = useState("none")
 
+    //--------------------- To hide search bar if current page in home when app starts ---------------------------//
     useEffect(() => {
         location.pathname === "/" ? setShowSearch("none") : setShowSearch("flex")
     }, [])
@@ -17,7 +18,7 @@ const ContextIndex = (props) => {
             value={{
                 channels,
                 setChannels,
-                showSearch, 
+                showSearch,
                 setShowSearch
             }}>
             {props.children}
