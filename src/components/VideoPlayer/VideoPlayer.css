@@ -12,7 +12,10 @@
 }
 
 .channel-name{
-    display: flex;
-    align-items: center;
-    height: 100%;
+    margin-top: 2%;
+    font-weight: bold;
+}
+
+.channel-followers{
+font-size: smaller;
 }

@@ -1,19 +1,25 @@
 import React from "react"
+import NumberFormat from "../NumberFormat/NumerFormat"
+import "./About.css"
 
-const About = ({ description }) => {
+const About = ({ description, followers }) => {
 
     return (
-        <>
+        <div>
             {description ?
-                <>
-                {description}
-                </> 
+                <p className="about-followers">
+                    <NumberFormat
+                        valueToFormat={followers} /> followers
+                    <br></br>
+                    <br></br>
+                    {description}
+                </p>
                 :
-                <>
-                No Information to display
-                </>
+                <p>
+                    No Information to display
+                </p>
             }
-        </>
+        </div>
     )
 }
 

@@ -11,11 +11,13 @@ const Home = () => {
     const { channels, setChannels, setShowSearch } = useContext(channelsContext)
 
     const handleSearchChange = (e) => {
+        e.preventDefault()
         setSearch(e.target.value)
     }
-    const searchChannel = async () => {
+    const searchChannel = async (e) => {
+        e.preventDefault()
         !search ? alert("Please enter Channel Name") :
-            setChannels(await getChannel(search))
+            setChannels(await getChannel(search));
     }
     const handleChannelClick = (channelId) => {
         history.push(`/${channelId}`)

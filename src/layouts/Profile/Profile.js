@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
-import { getChannelInfo, getChannelVideos } from "../../network"
+import { getChannelInfo, getChannelVideos, getFollowers } from "../../network"
 import { Tabs, Tab } from "react-bootstrap"
 import "../Profile/Profile.css"
 import About from "../../components/About/About"
@@ -14,6 +14,7 @@ const Profile = () => {
     const [profile, setProfile] = useState("")
     const [videos, setVideos] = useState([])
     const [videoUrl, setVideoUrl] = useState("")
+    const [followers, setFollowers] =useState("")
 
     const onVideoCardClicked = (e) => {
         setVideoUrl(e)
@@ -26,6 +27,8 @@ const Profile = () => {
             const videoResult = await getChannelVideos(channelId)
             setVideos(videoResult)
             setVideoUrl(videoResult[0] && videoResult[0].url)
+            const followersResult = await getFollowers(channelId)
+            setFollowers(followersResult)
             setShowSearch("flex")
         })()
     }, [])
@@ -38,11 +41,13 @@ const Profile = () => {
                         profileImageUrl={profile.profile_image_url}
                         displayName={profile.display_name}
                         videoUrl={videoUrl && videoUrl}
+                        followers={followers && followers.total}
                     />
                     <Tabs defaultActiveKey="videos">
                         <Tab eventKey="about" title="About">
                             <About
                                 description={profile.description}
+                                followers={followers && followers.total}
                             />
                         </Tab>
                         <Tab eventKey="videos" title="Videos">

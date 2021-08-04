@@ -1,19 +1,19 @@
 import React from "react";
 
-const NumberFormat = ({ viewCount }) => {
+const NumberFormat = ({ valueToFormat }) => {
 
     const views = () => {
-        if (viewCount > 999 && viewCount < 1000000) {
-            return (viewCount / 1000).toFixed(1) + "K"
-        } else if (viewCount > 1000000) {
-            return (viewCount / 1000000).toFixed(1) + "M"
+        if (valueToFormat > 999 && valueToFormat < 1000000) {
+            return (valueToFormat / 1000).toFixed(1) + "K"
+        } else if (valueToFormat > 1000000) {
+            return (valueToFormat / 1000000).toFixed(1) + "M"
         } else {
-            return viewCount;
+            return valueToFormat;
         }
     }
 
     return (
-        <>{views()}</>
+        <>{valueToFormat ? views() : "0"}</>
     )
 }
 

@@ -43,7 +43,7 @@ const TwitchVideos = ({ videos, onVideoCardClicked }) => {
                                     height="180" onClick={() => {onVideoCardClicked(a.url); }} />
                                 <div className="view-count">
                                     <NumberFormat
-                                        viewCount={a.view_count} /> Views
+                                        valueToFormat={a.view_count} /> Views
                                 </div>
                                 <div className="video-duration">
                                     {a.duration}

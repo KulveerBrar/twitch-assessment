@@ -22,7 +22,6 @@ export async function getChannel(name) {
 export async function getChannelInfo(id) {
     try {
         const result = await axios.get(`https://api.twitch.tv/helix/users?id=${id}`,
-            //   const result = await axios.get(`https://api.twitch.tv/helix/channels?broadcaster_id=${id}`,
             {
                 headers: {
                     "client-id": apiClientId,
@@ -51,3 +50,20 @@ export async function getChannelVideos(id) {
         alert(error.message)
     }
 }
+
+export async function getFollowers(id) {
+    try {
+        const result = await axios.get(`https://api.twitch.tv/helix/users/follows?to_id=${id}`,
+            {
+                headers: {
+                    "client-id": apiClientId,
+                    "Authorization": apiAccessToken
+                }
+            })
+        return result.data
+    } catch (error) {
+        console.log(error)
+        alert(error.message)
+    }
+}
+

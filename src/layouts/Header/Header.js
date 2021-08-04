@@ -10,12 +10,13 @@ const Header = () => {
 
     const [search, setSearch] = useState("")
 
-    const { setChannels, showSearch, setShowSearch } = useContext(channelsContext)
+    const { setChannels, showSearch } = useContext(channelsContext)
     const handleSearchChangeHeader = (e) => {
         setSearch(e.target.value);
     }
 
-    const searchChannelHeader = async () => {
+    const searchChannelHeader = async (e) => {
+        e.preventDefault();
         !search ? alert("Please enter Channel Name") :
             setChannels(await getChannel(search));
         history.push("/")
@@ -24,7 +25,7 @@ const Header = () => {
 
     return (
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#">Channels</Navbar.Brand>
+            <Navbar.Brand href="/">Channels</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <div className={`d-${showSearch} mx-auto`}>
