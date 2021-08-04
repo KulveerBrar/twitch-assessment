@@ -1,5 +1,6 @@
 import React from "react";
-import ListGroup from "react-bootstrap/ListGroup"
+import "./SearchResult.css"
+import { ListGroup, Image } from "react-bootstrap"
 
 const SearchResult = ({ channels, handleChannelClick }) => {
 
@@ -8,8 +9,11 @@ const SearchResult = ({ channels, handleChannelClick }) => {
             {!channels ?
                 <p> No Results Found </p> :
                 channels.map((a, index) => (
-                    <ListGroup.Item key={index} onClick={() => handleChannelClick(a.id)}>
-                        {a.display_name}
+                    <ListGroup.Item className="result-item" key={index} onClick={() => handleChannelClick(a.id)}>
+                        <Image src={a.thumbnail_url} roundedCircle className="logo-image" />
+                        <span className="result-name">
+                            {a.display_name}
+                        </span>
                     </ListGroup.Item>))}
         </ListGroup>
     )

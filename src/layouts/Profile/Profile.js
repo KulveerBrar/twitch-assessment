@@ -43,6 +43,7 @@ const Profile = () => {
                         videoUrl={videoUrl && videoUrl}
                         followers={followers && followers.total}
                     />
+                    <div className="tabs-container">
                     <Tabs defaultActiveKey="videos">
                         <Tab eventKey="about" title="About">
                             <About
@@ -57,6 +58,7 @@ const Profile = () => {
                             />
                         </Tab>
                     </Tabs>
+                    </div>
                 </>
             }
         </>

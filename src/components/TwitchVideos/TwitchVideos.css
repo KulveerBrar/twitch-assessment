@@ -9,7 +9,7 @@
 .video-thumbnail{
     position: relative;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .view-count{
@@ -17,7 +17,7 @@
     font-size: smaller;
     bottom: 5px;
     left: 5px;
-    background-color: black;
+    background-color: white;
     opacity: 0.7;
     border-radius: 5px;
     padding: 1%;
@@ -28,9 +28,19 @@
     font-size: smaller;
     bottom: 5px;
     right: 5px;
-    background-color: black;
+    background-color: white;
     opacity: 0.7;
     border-radius: 5px;
     padding: 1%;
 }
 
+.card-title{
+    overflow: hidden;
+    height: 38px;
+    text-overflow: ellipsis;
+}
+
+.card:hover  .card-title{
+    overflow:visible;
+    font-style: italic;
+  }

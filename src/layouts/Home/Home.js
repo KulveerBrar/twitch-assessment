@@ -4,6 +4,7 @@ import SearchForm from "../../components/SearchForm/SearchForm"
 import { useHistory } from "react-router-dom"
 import SearchResult from "../../components/SearchResult/SearchResult"
 import { channelsContext } from "../../Context/ContextIndex"
+import "./Home.css"
 
 const Home = () => {
     const history = useHistory()
@@ -28,16 +29,20 @@ const Home = () => {
     }, [])
 
     return (
-        <>
+        <div className="home-content">
+            <div className="home-search-form">
             <SearchForm
                 handleSearchChange={handleSearchChange}
                 searchChannel={searchChannel}
             />
+            </div>
+            <div className="search-results">
             <SearchResult
                 channels={channels}
                 handleChannelClick={handleChannelClick}
             />
-        </>
+            </div>
+        </div>
     )
 }
 

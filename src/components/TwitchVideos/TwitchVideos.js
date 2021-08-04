@@ -51,8 +51,8 @@ const TwitchVideos = ({ videos, onVideoCardClicked }) => {
                             </div>
                             </Link>
                             <div className="card-body">
-                                <h6 className="card-title text-dark">{a.title}</h6>
-                                <p className="card-text text-dark">{a.user_name} <br></br>{a.view_count} views</p>
+                            <Link to="twitch-video"><h6 className="card-title text-dark" onClick={() => {onVideoCardClicked(a.url); }}>{a.title}</h6></Link>
+                                <p className="card-text text-dark">{a.user_name} views</p>
                             </div>
                         </div>
                     )}

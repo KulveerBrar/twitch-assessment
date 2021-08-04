@@ -1,0 +1,14 @@
+.result-item{
+    height: 90px;
+}
+
+.result-name{
+    margin-left: 10%;
+    font-weight: bold;
+}
+
+.result-item:hover .logo-image,.result-name{
+    opacity: 0.6;
+}
+    
+

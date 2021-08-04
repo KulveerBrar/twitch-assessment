@@ -8,7 +8,7 @@ const VideoPlayer = ({ displayName, profileImageUrl, videoUrl, followers }) => {
 
     return (
         <>
-            <Container>
+            <Container className= "channel-info-container">
                 <Row>
                     <Col xs={6} className="user-image">
                         <div>

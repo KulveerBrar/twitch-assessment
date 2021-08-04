@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { Navbar } from "react-bootstrap"
 import SearchForm from "../../components/SearchForm/SearchForm"
 import { useHistory } from "react-router-dom"
@@ -25,7 +25,7 @@ const Header = () => {
 
     return (
         <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="/">Channels</Navbar.Brand>
+            <Navbar.Brand href="/">CHANNELS</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <div className={`d-${showSearch} mx-auto`}>
