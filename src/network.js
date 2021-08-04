@@ -16,7 +16,6 @@ export async function getChannel(name) {
             })
         return result.data.data
     } catch (error) {
-        console.log(error)
         alert(error.message)
     }
 }
@@ -33,7 +32,6 @@ export async function getChannelInfo(id) {
             })
         return result.data.data
     } catch (error) {
-        console.log(error)
         alert(error.message)
     }
 }
@@ -50,7 +48,6 @@ export async function getChannelVideos(id) {
             })
         return result.data.data
     } catch (error) {
-        console.log(error)
         alert(error.message)
     }
 }
@@ -67,7 +64,6 @@ export async function getFollowers(id) {
             })
         return result.data
     } catch (error) {
-        console.log(error)
         alert(error.message)
     }
 }
